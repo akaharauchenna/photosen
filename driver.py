@@ -27,9 +27,41 @@ def show_ok_message():
     # Show a message box
     tk.messagebox.showinfo("Okay!", "This video is safe to watch and has no sudden change in Luminance")
 
+def get_slider_value(slider, root):
+    # Get the current value of the slider
+    global val
+    value = slider.get()
+
+    # Print the value
+    val = int(value)
+
+    # Close GUI
+    root.destroy()
+
+def create_slider():
+    # Create a root window
+    root = tk.Tk()
+
+    # Create a slider (also known as a scale in tkinter)
+    slider = tk.Scale(root, from_=0, to=100, orient=tk.HORIZONTAL)
+
+    # Create a button that prints the current value of the slider when clicked
+    button = tk.Button(root, text="Set Value", command=lambda: get_slider_value(slider, root))
+
+    # Pack the slider and the button
+    slider.pack()
+    button.pack()
+
+    # Start the main loop
+    root.mainloop()
+
+
+slider = create_slider()
+threshold = val
+# print("Here is val: ", threshold)
 video = select_video_file()
 
-if detect_flashing_video(video):
+if detect_flashing_video(video, threshold):
     show_warning_message()
 else:
     show_ok_message()

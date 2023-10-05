@@ -3,6 +3,7 @@ import numpy as np
 
 def detect_flashing_video(video_path, threshold=30):
     # Load the video
+    # print('This is the Frequency: %d Hrtz'%threshold)
     video = cv2.VideoCapture(video_path)
 
     # Initialize variables

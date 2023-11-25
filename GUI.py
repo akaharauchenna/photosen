@@ -28,8 +28,7 @@ def get_slider_value(slider, root):
     # Print the value
     val = int(value)
 
-    # Close GUI
-    root.destroy()
+    root.quit()
 
 def get_val():
     return val

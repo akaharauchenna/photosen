@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-def detect_camera_shake(video_path, threshold=10.0):
+def detect_camera_shake(video_path, threshold=7.5):
     # Load the video
     cap = cv2.VideoCapture(video_path)
 
